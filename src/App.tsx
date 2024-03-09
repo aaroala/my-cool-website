@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar';
+import PixelArtPage from "./pages/pixelArt/PixelArtPage";
 import './App.css';
+import VoxelArtPage from './pages/voxelArt/VoxelArtPage';
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { Box, Switch } from '@mui/material';
+import { useState } from 'react';
+import BlogPage from './pages/blog/BlogPage';
+import HomePage from './pages/home/HomePage';
+
 
 function App() {
+  const [toggleDarkMode, setToggleDarkMode] = useState(true);
+
+  const toggleDarkTheme = () => {
+    setToggleDarkMode(!toggleDarkMode);
+  };
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: toggleDarkMode ? 'dark' : 'light', 
+      primary: {
+        main: '#666666',
+      },
+      secondary: {
+        main: '#131052',
+      },
+    },
+  });
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Router>
+        <Navbar toggleDarkTheme={toggleDarkTheme} toggleDarkMode={toggleDarkMode}/>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/pixel-arts" element={<PixelArtPage />} />
+          <Route path="/voxel-arts" element={<VoxelArtPage />} />
+          <Route path="/blogs" element={<BlogPage />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
+    
   );
+
+
+
 }
 
 export default App;
