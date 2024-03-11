@@ -9,6 +9,8 @@ import { Box, Switch } from '@mui/material';
 import { useState } from 'react';
 import BlogPage from './pages/blog/BlogPage';
 import HomePage from './pages/home/HomePage';
+import Login from './pages/login/Login';
+
 
 
 function App() {
@@ -31,18 +33,20 @@ function App() {
   });
 
 
+
   return (
     <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <Router>
-        <Navbar toggleDarkTheme={toggleDarkTheme} toggleDarkMode={toggleDarkMode}/>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/pixel-arts" element={<PixelArtPage />} />
-          <Route path="/voxel-arts" element={<VoxelArtPage />} />
-          <Route path="/blogs" element={<BlogPage />} />
-        </Routes>
-      </Router>
+        <CssBaseline />
+        <Router>
+          <Navbar toggleDarkTheme={toggleDarkTheme} toggleDarkMode={toggleDarkMode}/>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/pixel-arts" element={<PixelArtPage />} />
+            <Route path="/voxel-arts" element={<VoxelArtPage />} />
+            <Route path="/blogs" element={<BlogPage />} />
+            <Route path='/login' element={<Login />} />
+          </Routes>
+        </Router>
     </ThemeProvider>
     
   );
