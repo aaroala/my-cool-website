@@ -16,15 +16,26 @@ import { auth } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import IconButton from '@mui/material/IconButton';
 import LightModeIcon from '@mui/icons-material/LightMode';
+import { useThemeContext } from "../theme/ThemeContextProvider";
 
 
 import { useNavigate } from "react-router-dom";
 
 
-function Navbar({ toggleDarkTheme, toggleDarkMode } : { toggleDarkTheme : Function, toggleDarkMode : boolean}) {
+const pages = [
+  {text: 'Home', to: ''},
+  {text: 'Pixle Art Project', to: 'pixel-arts'},
+  {text: 'Voxel Art Project', to: 'voxel-arts'},
+  {text: 'Blogs', to: 'blogs'},
+
+];
+
+function Navbar() {
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
+  const { mode, toggleColorMode } = useThemeContext();
 
   const signUserOut = async () => {
     await signOut(auth);
@@ -32,49 +43,32 @@ function Navbar({ toggleDarkTheme, toggleDarkMode } : { toggleDarkTheme : Functi
   };
 
   return (
-    <AppBar position="static">
-        <Toolbar sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+    <div style={{position: "static"}}>
+        <Toolbar sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', boxShadow: '5'}}>
           <Typography variant="h6" sx={{pl: 0}}>Website</Typography>
           <Container sx={{display: 'flex', justifyContent: 'center'}}>
-            <Button
-              onClick={() => {navigate("/")}}
-              sx={{ color: 'white', }}>
-              Home
-            </Button>
-            <Button
-              onClick={() => {navigate("/pixel-arts")}}
-              sx={{ color: 'white', display: 'block' }}>
-              Pixel Art Project
-            </Button>
-            <Button
-              onClick={() => {navigate("/voxel-arts")}}
-              sx={{color: 'white',}}>
-              Voxel Art Project
-            </Button>
-            <Button
-              onClick={() => {navigate("/blogs")}}
-              sx={{color: 'white',}}>
-              Blog
-            </Button>
+            {pages.map((page, index) => (
+              <Button onClick={() => {navigate(`/${page.to}`)}}>
+                <Typography>{page.text}</Typography>
+              </Button>
+            ))}
           </Container>
-          <Button sx={{ color: 'white'}} onClick={() => toggleDarkTheme()}>
-            {toggleDarkMode ? <LightModeIcon/> : <DarkModeIcon/>}
-          </Button>
+          <IconButton onClick={toggleColorMode}>
+            {mode === "dark" ? <LightModeIcon/> : <DarkModeIcon/>}
+          </IconButton>
 
           {!user ? 
           (
             <Button
-            onClick={() => {navigate("/login")}}
-            sx={{color: 'white',}}>
-            Login
+            onClick={() => {navigate("/login")}}>
+            <Typography>Login</Typography>
           </Button>
           )
           : 
           (<Typography>Logged in as: {user?.displayName}</Typography>)
           }
-
         </Toolbar>
-    </AppBar>
+    </div>
   );
 }
 export default Navbar;

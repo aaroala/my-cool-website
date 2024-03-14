@@ -6,39 +6,25 @@ import VoxelArtPage from './pages/voxelArt/VoxelArtPage';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Box, Switch } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BlogPage from './pages/blog/BlogPage';
 import HomePage from './pages/home/HomePage';
 import Login from './pages/login/Login';
+import Footer from './components/Footer';
+import { useThemeContext } from "./theme/ThemeContextProvider";
+import { alpha } from '@mui/material'
 
 
 
 function App() {
-  const [toggleDarkMode, setToggleDarkMode] = useState(true);
 
-  const toggleDarkTheme = () => {
-    setToggleDarkMode(!toggleDarkMode);
-  };
-
-  const darkTheme = createTheme({
-    palette: {
-      mode: toggleDarkMode ? 'dark' : 'light', 
-      primary: {
-        main: '#666666',
-      },
-      secondary: {
-        main: '#131052',
-      },
-    },
-  });
-
-
+  const { theme } = useThemeContext();
 
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
         <CssBaseline />
         <Router>
-          <Navbar toggleDarkTheme={toggleDarkTheme} toggleDarkMode={toggleDarkMode}/>
+          <Navbar/>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/pixel-arts" element={<PixelArtPage />} />
@@ -47,6 +33,7 @@ function App() {
             <Route path='/login' element={<Login />} />
           </Routes>
         </Router>
+        <Footer />
     </ThemeProvider>
     
   );

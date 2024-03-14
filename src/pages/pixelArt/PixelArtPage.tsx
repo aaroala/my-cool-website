@@ -29,7 +29,7 @@ const PixelArtPage = () => {
     <div className="App">
       <Typography py={4} variant="h2">Pixel Art Project</Typography>
       <ExplainText />
-      <Box component="div" py={2} mt={5} sx={{bgcolor: '#888888'}}>
+      <Box component="div" py={2} mt={5} bgcolor='secondary.dark' boxShadow={5} mb={2}>
         <Typography variant="h3"> Drawn pixel arts so far</Typography>
         <Typography>Downloaded from the server just for you :) (Newer ones might not have been moderated yet)</Typography>
       </Box>
