@@ -1,5 +1,5 @@
 import { PaletteMode } from "@mui/material";
-import { amber, deepOrange, green, grey } from "@mui/material/colors";
+import { amber, grey } from "@mui/material/colors";
 
 const theme = {
   palette: {

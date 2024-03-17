@@ -28,13 +28,6 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': '*',
 };
 
-exports.sayHello = onCall({ cors: true }, (data, context) => {
-  return {msg:"Hello from Firebase!"};
-    // res.set('Access-Control-Allow-Methods', 'GET, POST');
-    // res.status(200).send({message: "Hello world!"});
-  }
-);
-
 
 
 
@@ -63,28 +56,28 @@ exports.getPixelArts = onRequest((req, res) => {
   })
 });
 
-exports.deletePixelArt = onRequest((req, res) => {
-  return res.send("data");
-  // const client = new Client({
-  //   connectionString: process.env.DATABASE_URI,
-  // });
+// exports.deletePixelArt = onRequest((req, res) => {
+//   return res.send("data");
+//   // const client = new Client({
+//   //   connectionString: process.env.DATABASE_URI,
+//   // });
 
-  // let data = "ok"
-  // client.connect();
-  // client.query('SELECT * FROM pixel_art ORDER BY creation_date', (err, queryRes) => {
-  //   if (err) {
-  //     console.error(err);
-  //   } else {
-  //     console.log(queryRes.rows);
-  //     data = queryRes.rows
-  //   }
-  //   client.end();
-  //   return res.send(data);
-})
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+//   // let data = "ok"
+//   // client.connect();
+//   // client.query('SELECT * FROM pixel_art ORDER BY creation_date', (err, queryRes) => {
+//   //   if (err) {
+//   //     console.error(err);
+//   //   } else {
+//   //     console.log(queryRes.rows);
+//   //     data = queryRes.rows
+//   //   }
+//   //   client.end();
+//   //   return res.send(data);
+// })
+// // Create and deploy your first functions
+// // https://firebase.google.com/docs/functions/get-started
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+// // exports.helloWorld = onRequest((request, response) => {
+// //   logger.info("Hello logs!", {structuredData: true});
+// //   response.send("Hello from Firebase!");
+// // });

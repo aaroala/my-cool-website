@@ -1,10 +1,8 @@
 import { Container, Paper, Typography } from "@mui/material";
 import StorageIcon from '@mui/icons-material/Storage';
 import TerminalIcon from '@mui/icons-material/Terminal';
-import WebIcon from '@mui/icons-material/Web';
 import PublicIcon from '@mui/icons-material/Public';
 import WbTwilightIcon from '@mui/icons-material/WbTwilight';
-import CropDinIcon from '@mui/icons-material/CropDin';
 import FilterFramesIcon from '@mui/icons-material/FilterFrames';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';

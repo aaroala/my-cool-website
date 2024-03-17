@@ -1,7 +1,6 @@
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
 import VoxelArtViewer from '../components/VoxelArtViewer';
-import { Box, Box as MuiBox, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { VoxelArt } from '../../../interfaces/interfaces';
 
 

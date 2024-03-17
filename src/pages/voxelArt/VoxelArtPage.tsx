@@ -1,11 +1,8 @@
-import { Canvas } from 'react-three-fiber';
 import Container from '@mui/material/Container';
-import { Vector3 } from 'three';
 import { useEffect, useRef, useState } from 'react';
 import { VoxelArt } from '../../interfaces/interfaces';
-import Button from '@mui/material/Button';
 import VoxelArtViewer from './components/VoxelArtViewer';
-import { Box, Box as MuiBox, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import PageSelectionButtons from './components/PageSelectButtons';
 import voxel_arts_top from '../../images/voxel_arts_top.png'
 import voxel_arts_ground from '../../images/voxel_arts_ground.png'

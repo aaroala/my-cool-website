@@ -1,17 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
-import Box from '@mui/material/Box';
-import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Menu from "@mui/material/Menu";
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import MenuItem from '@mui/material/MenuItem';
-import Drawer from '@mui/material/Drawer';
-import { makeStyles } from "@mui/material";
 import { auth } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
@@ -30,7 +20,6 @@ const pages = [
   {text: 'Voxel Art Project', to: 'voxel-arts'},
   {text: 'Blogs', to: 'blogs'},
   {text: 'About', to: 'about'},
-
 ];
 
 function Navbar() {

@@ -1,11 +1,5 @@
-
-import axios from 'axios';
-import firebase from '../../config/firebase';
-import { getFunctions, httpsCallable, connectFunctionsEmulator  } from "firebase/functions";
 import { useEffect, useState } from 'react';
-import { Octokit } from 'octokit';
-import { Box, Container, Grid, Paper, Stack, Typography } from '@mui/material';
-import Markdown from 'react-markdown'
+import { Container, Paper, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 
 import sanityClient from "../../client";

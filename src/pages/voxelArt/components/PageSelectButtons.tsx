@@ -1,9 +1,7 @@
-import { Canvas } from 'react-three-fiber';
+
 import Container from '@mui/material/Container';
-import { Vector3 } from 'three';
-import { useEffect, useRef, useState } from 'react';
 import Button from '@mui/material/Button';
-import { Box, Box as MuiBox, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
 
 const PageSelectionButtons = ({voxelArtKeys, voxelArtsPerPage, currentIndex, PageButtonPressBehaviour} : {voxelArtKeys : string[], voxelArtsPerPage : number, currentIndex : number, PageButtonPressBehaviour : any}) => {

@@ -1,12 +1,9 @@
 
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import Container from '@mui/material/Container';
-import Image from '@mui/icons-material/image';
 import Typography from '@mui/material/Typography';
 import pixel_art_loading_image from '../../../images/pixel_art_loading.png'
 import pixel_arts_wall from '../../../images/pixel_arts.png'
 import { Link } from 'react-router-dom';
-import { Box } from '@mui/material';
 
 const ExplainText = () => {
   return(

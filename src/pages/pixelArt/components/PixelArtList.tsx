@@ -1,6 +1,4 @@
 
-
-import React, { useEffect, useState } from 'react';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Container from '@mui/material/Container';
 import { PixelArt } from '../../../interfaces/interfaces';
