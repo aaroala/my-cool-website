@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Container, Paper, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 
-import sanityClient from "../../client";
+import sanityClient from "../../config/sanityClient";
 import { Link } from 'react-router-dom';
 
 const BlogsPage = () => {

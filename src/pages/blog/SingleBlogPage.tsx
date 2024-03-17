@@ -2,10 +2,12 @@
 
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import sanityClient from "../../client";
+import sanityClient from "../../config/sanityClient";
 import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
 import { Container, Divider, Typography } from "@mui/material";
+import { PortableText } from '@portabletext/react'
+import BlogImage from "./components/BlogImage";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source: any) {
@@ -51,10 +53,13 @@ const BlogPage = () => {
           alt=""
           style={{ height: "400px"}}
         />
-        <BlockContent
-          blocks={postData.body}
-          projectId="n0w9gmne"
-          dataset="production"
+        <PortableText
+          value={postData.body}
+          components={{
+            types: {
+              image: BlogImage
+            }
+          }}
         />
       </Container>
   );

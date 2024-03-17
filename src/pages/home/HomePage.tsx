@@ -8,7 +8,7 @@ import programming_photo from "../../images/programming_photo.jpg"
 import question_mark from "../../images/question_mark.jpg"
 import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import options from "./nasa";
+import options from "./floatingParticles";
 import { loadSlim } from "@tsparticles/slim";
 import { Link as MuiLink} from "@mui/material";
 import { Link } from "react-router-dom";
@@ -66,6 +66,7 @@ const particlesLoaded = (container) => {
               <Typography variant="h5">This website is made using</Typography>
               <Typography>React</Typography>
               <Typography>Typescript</Typography>
+              <Typography>Vercel (hosting)</Typography>
               <Typography>Firebase (athentication/backend)</Typography>
               <Typography>Material UI (styling)</Typography>
               <Typography>Sanity (blogs)</Typography>
