@@ -1,8 +1,10 @@
+// @ts-nocheck
+
 import { auth, provider } from "../../config/firebase";
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import Button from "@mui/material";
-import Container from "@mui/material";
+import { Typography, Button } from "@mui/material";
+import { Container  } from "@mui/material";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -16,10 +18,10 @@ const Login = () => {
       }
     };
   return (
-    <div>
-      <p>Login:</p>
-      <button onClick={() =>signInwithGoogle}>Login with Google account</button>
-    </div>
+    <Container sx={{mt: 10, textAlign: "center"}}>
+      <Typography variant="h3" sx={{mb:3}}>Login with:</Typography>
+      <Button variant="contained" onClick={() =>signInwithGoogle()}>Google account</Button>
+    </Container>
   );
 };
 

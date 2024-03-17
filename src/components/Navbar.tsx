@@ -26,9 +26,10 @@ import { useNavigate } from "react-router-dom";
 
 const pages = [
   {text: 'Home', to: ''},
-  {text: 'Pixle Art Project', to: 'pixel-arts'},
+  {text: 'Pixel Art Project', to: 'pixel-arts'},
   {text: 'Voxel Art Project', to: 'voxel-arts'},
   {text: 'Blogs', to: 'blogs'},
+  {text: 'About', to: 'about'},
 
 ];
 
