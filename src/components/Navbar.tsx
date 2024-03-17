@@ -38,7 +38,8 @@ function Navbar() {
           <Typography variant="h6" sx={{pl: 0}}>Website</Typography>
           <Container sx={{display: 'flex', justifyContent: 'center'}}>
             {pages.map((page, index) => (
-              <Button onClick={() => {navigate(`/${page.to}`)}}>
+              <Button onClick={() => {navigate(`/${page.to}`)}}
+                color="inherit" >
                 <Typography>{page.text}</Typography>
               </Button>
             ))}
