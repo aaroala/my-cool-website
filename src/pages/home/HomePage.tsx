@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import options from "./nasa";
 import { loadSlim } from "@tsparticles/slim";
+import { Link as MuiLink} from "@mui/material";
 import { Link } from "react-router-dom";
 
 
@@ -59,13 +60,13 @@ const particlesLoaded = (container) => {
       <div style={{display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap', flexDirection: 'row', }}>
         <div style={{margin: 20}}>
           <Fade in={true} 
-            style={{ transitionDelay: `${2000}ms` }}
+            style={{ transitionDelay: `${1500}ms` }}
             {...({ timeout: 3000 })}>
             <div>
               <Typography variant="h5">This website is made using</Typography>
               <Typography>React</Typography>
-              <Typography>Typescript (type:any)</Typography>
-              <Typography>Firebase (athentication/database/backend)</Typography>
+              <Typography>Typescript</Typography>
+              <Typography>Firebase (athentication/backend)</Typography>
               <Typography>Material UI (styling)</Typography>
               <Typography>Sanity (blogs)</Typography>
               <Typography>Three.js (3D visualization)</Typography>
@@ -75,16 +76,22 @@ const particlesLoaded = (container) => {
         </div>
         <div style={{margin: 20}}>
           <Fade in={true} 
-            style={{ transitionDelay: `${2500}ms` }}
+            style={{ transitionDelay: `${2000}ms` }}
             {...({ timeout: 3000 })}>
               <div>
-                <Typography variant="h5">Check this website's code on Github!</Typography>
+                <Typography variant="h5">Check this website's source code on 
+                <MuiLink component="button" 
+                  color="inherit" 
+                  onClick={() => window.open(`https://github.com/aaroala/my-cool-website`, '_blank')}> 
+                    Github!
+                  </MuiLink>
+                </Typography>
               </div>
           </Fade>
         </div>
         <div style={{margin: 20}}>
           <Fade in={true} 
-            style={{ transitionDelay: `${3000}ms`, margin:10}}
+            style={{ transitionDelay: `${2500}ms`, margin:10}}
             {...({ timeout: 3000 })}>
             <div>
               <Typography variant="h5">And my projects below</Typography>
@@ -94,7 +101,7 @@ const particlesLoaded = (container) => {
       </div>
       <MuiContainer sx={{mt: 20}} />
       <Fade in={true} 
-            style={{ transitionDelay: `${4000}ms` }}
+            style={{ transitionDelay: `${3500}ms` }}
             {...({ timeout: 3000 })}>
           <div>
             <Typography variant="h3" sx={{textAlign: 'center'}}>Check out some of my projects!</Typography>
@@ -133,7 +140,7 @@ const particlesLoaded = (container) => {
             <Typography variant="h3" sx={{textAlign: 'center'}}>And here's something about me</Typography>
             <Box sx={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap', flexDirection: 'row'}}>
               <div style={{margin: 5}}>
-                <Link to={"/blogs"} style={{ textDecoration: 'none' }}>
+                <Link to={"/about"} style={{ textDecoration: 'none' }}>
                   <Paper elevation={10} sx={{p:3}}>
                     <Typography variant="h5">About me</Typography>
                     <img src={question_mark} style={{width: "100%", height: "auto", maxHeight: "200px"}}alt="pixel arts wall"/>

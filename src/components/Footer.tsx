@@ -1,6 +1,6 @@
 import GitHubIcon from '@mui/icons-material/GitHub';
 import XIcon from '@mui/icons-material/X';
-import { Box, Container, Typography, IconButton } from "@mui/material"
+import { Box, Typography, IconButton } from "@mui/material"
 
 const Footer = () => {
 
