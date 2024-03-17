@@ -1,7 +1,6 @@
 import Container from '@mui/material/Container';
 import { useEffect, useRef, useState } from 'react';
-import { VoxelArt } from '../../interfaces/interfaces';
-import VoxelArtViewer from './components/VoxelArtViewer';
+import VoxelArtsList from './components/VoxelArtsList';
 import { Box, Typography } from '@mui/material';
 import PageSelectionButtons from './components/PageSelectButtons';
 import voxel_arts_top from '../../images/voxel_arts_top.png'
@@ -33,28 +32,6 @@ const VoxelArtPage = () => {
   const PageButtonPressBehaviour = (e: any) => {
     setCurrentIndex(parseInt(e.target.value))
     scrollToComponentRef.current.scrollIntoView({behavior: "smooth"})
-  }
-
-
-  const VoxelArtsList = () => {
-    return(
-      <Container sx={{display: 'flex', textAlign:"center", flexDirection:"column", justifyContent:"center"}}>
-        {voxelArtsToShow.map((key) => {
-          const voxelArt: VoxelArt = voxelArts[key];
-          return (
-            <Box component="div" key={key} sx={{m: 3}}>
-              <Container>
-                <Typography variant="h5">{voxelArt.username}</Typography>
-                <Typography>Likes: {voxelArt.likes}</Typography>
-                <Typography>Creation date: {voxelArt.creationDate}</Typography>
-              </Container>
-              <Container sx={{pb:5}}>
-                <VoxelArtViewer data={voxelArt.data}/>
-              </Container>
-            </Box>);
-        })}
-      </Container>
-    )
   }
 
   
@@ -108,9 +85,16 @@ const VoxelArtPage = () => {
       </Box>
       <br/>
       <div ref={scrollToComponentRef}></div>
-      <PageSelectionButtons voxelArtKeys={voxelArtKeys} voxelArtsPerPage={voxelArtsPerPage} currentIndex={currentIndex} PageButtonPressBehaviour={PageButtonPressBehaviour}/>
-      <VoxelArtsList />
-      <PageSelectionButtons voxelArtKeys={voxelArtKeys} voxelArtsPerPage={voxelArtsPerPage} currentIndex={currentIndex} PageButtonPressBehaviour={PageButtonPressBehaviour}/>
+      {voxelArts.length === 0 ?
+        <Typography variant='h4' my={2}>Loading...</Typography>
+      :
+        <>
+          <PageSelectionButtons voxelArtKeys={voxelArtKeys} voxelArtsPerPage={voxelArtsPerPage} currentIndex={currentIndex} PageButtonPressBehaviour={PageButtonPressBehaviour}/>
+          <VoxelArtsList voxelArts={voxelArts} voxelArtsToShow={voxelArtsToShow}/>
+          <PageSelectionButtons voxelArtKeys={voxelArtKeys} voxelArtsPerPage={voxelArtsPerPage} currentIndex={currentIndex} PageButtonPressBehaviour={PageButtonPressBehaviour}/>
+        </>
+      }
+
     </div>
   );
 };

@@ -10,7 +10,7 @@
 /* eslint-disable padded-blocks */
 /* eslint-disable no-unused-vars */
 
-/*let me write my trashy code in peace */
+/*let me write my trash code in peace */
 /**
  * Import function triggers from their respective submodules:
  *
@@ -23,23 +23,17 @@
 const {onRequest, onCall, HttpsError} = require("firebase-functions/v2/https");
 const {Client} = require("pg")
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': '*',
-};
+
 
 
 
 
 exports.getPixelArts = onRequest((req, res) => {
-  // res.set('Access-Control-Allow-Origin', "*")
+  res.set('Access-Control-Allow-Origin', "*")
   // res.set('Access-Control-Allow-Methods', 'GET, POST');
   //res.set(corsHeaders);
-  // return res.status(200).send({
-  //   "message": "This is a valid JSON response"
-  // });
   const client = new Client({
-    connectionString: process.env.DATABASE_URI,
+    connectionString: process.env.PIXEL_ART_DATABASE_URI,
   });
 
   let data = "ok"
@@ -48,16 +42,15 @@ exports.getPixelArts = onRequest((req, res) => {
     if (err) {
       console.error(err);
     } else {
-      console.log(queryRes.rows);
       data = queryRes.rows
     }
     client.end();
-    return res.send(data);
+    return res.status(200).send(data);
   })
 });
 
-// exports.deletePixelArt = onRequest((req, res) => {
-//   return res.send("data");
+// exports.deletePixelArt = onCall((req, res) => {
+//   return res.status(200).send("data");
 //   // const client = new Client({
 //   //   connectionString: process.env.DATABASE_URI,
 //   // });

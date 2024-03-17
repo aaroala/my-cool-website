@@ -4,11 +4,11 @@ import { Box, Typography } from '@mui/material';
 import { VoxelArt } from '../../../interfaces/interfaces';
 
 
-const VoxelArtsList = ({voxelArts, voxelArtsToShow} : {voxelArts: VoxelArt[], voxelArtsToShow: number[]}) => {
+const VoxelArtsList = ({voxelArts, voxelArtsToShow} : {voxelArts: VoxelArt[], voxelArtsToShow: string[]}) => {
   return(
     <Container sx={{display: 'flex', textAlign:"center", flexDirection:"column", justifyContent:"center"}}>
-      {voxelArtsToShow.map((key: number) => {
-        const voxelArt: VoxelArt = voxelArts[key];
+      {voxelArtsToShow.map((key: string) => {
+        const voxelArt: VoxelArt = voxelArts[parseInt(key)];
         return (
           <Box component="div" key={key} sx={{m: 3}}>
             <Container>

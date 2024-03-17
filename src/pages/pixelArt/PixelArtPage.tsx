@@ -12,9 +12,10 @@ const PixelArtPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5001/project-website-93450/us-central1/getPixelArts');
+        const pixelArtUrl = process.env.REACT_APP_PIXEL_ART_GET_URL
+        const response = await fetch(pixelArtUrl ? pixelArtUrl : "");
         const data = await response.json();
-        console.log(data); // You can do something with the fetched data here
+        console.log(data); 
         setPixelArts(data)
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -34,8 +35,15 @@ const PixelArtPage = () => {
         <Typography>Downloaded from the server just for you :) (Newer ones might not have been moderated yet)</Typography>
       </Box>
       <Typography>Note: dark mode might affect the images below</Typography>
-      <Typography my={2}>Showing ALL {pixelArts.length}/{pixelArts.length}</Typography>
-      <PixelArtList pixelArts={pixelArts}/>
+      {pixelArts.length === 0 ?
+      <Typography variant='h4' my={2}>Loading...</Typography>
+      :
+      <>
+        <Typography my={2}>Showing ALL {pixelArts.length}/{pixelArts.length}</Typography>
+        <PixelArtList pixelArts={pixelArts}/>
+      </>
+      }
+
     </div>
   );
 
